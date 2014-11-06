@@ -1,8 +1,7 @@
-Blog project for M101JS
+CMPE 273 Project Group 14 Fall 2014
 
 ./app.js - entry point
 ./package.json - npm package description
-./posts.js - Posts Data Access Helper
 ./sessions.js - Sessions Data Access Helper
 ./users.js - Users Data Access Helper
 ./views/ - html templates
