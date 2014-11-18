@@ -1,4 +1,4 @@
-CMPE 273 Project Group 14 Fall 2014
+CMPE 273 Project Fall 2014
 
 ./app.js - entry point
 ./package.json - npm package description
