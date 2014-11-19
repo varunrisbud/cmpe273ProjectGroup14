@@ -11,16 +11,16 @@ function UsersDAO(db) {
         return new UsersDAO(db);
     }
 
-    var users = db.collection("users");
+    var users = db.collection("user");
 
-    this.addUser = function(firstName, lastName, emailAddress, password, callback) {
+    this.addUser = function(firstName, lastName, emailAddress, password, radio, callback) {
         "use strict";
         // Generate password hash
         var salt = bcrypt.genSaltSync();
         var password_hash = bcrypt.hashSync(password, salt);
 
         // Create user document
-        var user = {'_id': emailAddress, 'firstName': firstName, 'lastName': lastName, 'password': password_hash};
+        var user = {'_id': emailAddress, 'firstName': firstName, 'lastName': lastName, 'password': password_hash, 'truckOwner': radio};
 
         // TODO: hw2.3
 		users.insert(user, function(err, result){

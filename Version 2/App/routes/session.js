@@ -31,6 +31,9 @@ function SessionHandler (db) {
 	var lastName = req.body.lastName;
 	var emailAddress= req.body.emailAddress;
 	var password = req.body.password;
+	var radio = req.body.truckOwner;
+	
+	console.log(radio);
 	
 	var emailID = req.body.emailID;
 	var passwd = req.body.passwd;
@@ -46,6 +49,7 @@ function SessionHandler (db) {
             "use strict";
 
             if (err) {
+			
                 if (err.no_such_user) {
                     return res.render("login", {emailID:username, passwd:"", username_error:"No such user"});
                 }
@@ -72,8 +76,8 @@ function SessionHandler (db) {
 	if(emailID == null && passwd == null)
 	{
 		var errors = {'email': emailAddress}
-        if (validateSignup(firstName, lastName, emailAddress, password, errors)) {
-            users.addUser(firstName, lastName, emailAddress, password, function(err, user) {
+        if (validateSignup(firstName, lastName, emailAddress, password, radio, errors)) {
+            users.addUser(firstName, lastName, emailAddress, password, radio, function(err, user) {
                 "use strict";
 
                 if (err) {
@@ -119,7 +123,7 @@ function SessionHandler (db) {
         });
     }
 
-    function validateSignup(firstName, lastName, emailAddress, password, errors) {
+    function validateSignup(firstName, lastName, emailAddress, password, radio, errors) {
         "use strict";
 		
 		var FIRST_RE = /^[a-zA-Z_]{3,20}$/
@@ -132,6 +136,7 @@ function SessionHandler (db) {
 		errors['lastname_error'] = "";
 		errors['email_error'] = "";
         errors['password_error'] = "";
+		errors['radio_error'] = "";
 		
         
         if (!FIRST_RE.test(firstName)) {
@@ -155,6 +160,11 @@ function SessionHandler (db) {
             errors['password_error'] = "invalid password.";
             return false;
         }
+		
+		if(radio == null)
+		{
+			errors['radio_error'] = "Select Yes or No";
+		}
 				
         return true;
     }

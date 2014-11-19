@@ -11,7 +11,7 @@ function SessionsDAO(db) {
         return new SessionsDAO(db);
     }
 
-    var sessions = db.collection("sessions");
+    var sessions = db.collection("session");
 
     this.startSession = function(username, callback) {
         "use strict";
