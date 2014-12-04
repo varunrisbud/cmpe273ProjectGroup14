@@ -10,7 +10,7 @@ var express = require('express')
   //Favicon
   //var favicon = require('serve-favicon');
   
-MongoClient.connect('mongodb://localhost:27017/blog', function(err, db) {
+MongoClient.connect('mongodb://localhost:27017/truckstop', function(err, db) {
     "use strict";
     if(err) throw err;
 
@@ -21,7 +21,6 @@ MongoClient.connect('mongodb://localhost:27017/blog', function(err, db) {
 	
 	//Favicon
 	//app.use(favicon(__dirname + '/views/img/favicon.ico'));
-	
 
     // Express middleware to populate 'req.cookies' so we can access cookies
     app.use(express.cookieParser());

@@ -17,17 +17,14 @@
 		</h1>	
 	</div>
 	<div class="small-2 columns">
-	<br>
 		<label>Username</label>
-		<input id="txtusername" type="text">
+		<input id="txtusername" type="text" name="emailID">
 	</div>
 	<div class="small-2 columns">
-	<br>
 		<label>Password</label>
-		<input id="txtpassword" type="password">
+		<input id="txtpassword" type="password" name="passwd">
 	</div>
-	<div class="small-2 columns" style="padding-top:5px">
-	<br>
+	<div class="small-2 columns">
 	<br>
 		<input id="btnsignin" type="submit" class="tiny button round" style="background-color:brown;color:white;font-weight:bold;" value="Sign in">
 	</div>
@@ -36,7 +33,7 @@
 	<br>
 	<br>
 	<h3 id="h3">Don't have an account,<br> sign up now!!!</h3>
-	
+
 	<div class="small-3 columns">
 		<label id="lblfirstname">First Name</label>
 		<label id="lbllastname">Last Name</label>
@@ -44,16 +41,29 @@
 		<label id="lblpwd">Password</label>
 		<label id="lblfowner">Are you a<br> food-truck owner?</label>
 	</div>
+
+
 	<div class="small-2 pull-8 columns">
+	<form method="post">
 	<br>
-		<input id="firstname" type="text">
-		<input id="lastname" type="text">
-		<input id="email" type="email">
-		<input id="signuppassword" type="password">
-		&nbsp;&nbsp;&nbsp;<input type="radio" name="radio" id="radio1" value="Yes"  >&nbsp;<span>Yes</span> &nbsp;
-		<input type="radio" id="radio1" name="radio" value="No">&nbsp;<span>No</span>
+		<input id="firstname" type="text" name="firstName">
+		<label class="error">{{firstname_error}}</label>
+		
+		<input id="lastname" type="text" name="lastName">
+		<label class="error">{{lastname_error}}</label>
+		
+		<input id="email" type="email" name="emailAddress">
+		<label class="error">{{email_error}}</label>
+		
+		<input id="signuppassword" type="password" name="password">
+		<label class="error">{{password_error}}</label>
+		
+		&nbsp;&nbsp;&nbsp;<input type="radio" name="truckOwner" id="radio1" value="Yes"  >&nbsp;<span>Yes</span> &nbsp;
+		<input type="radio" id="radio1" name="truckOwner" value="No">&nbsp;<span>No</span> <label class="error">{{radio_error}}</label>
 		<input id="joinnow" type="submit" class="small button round" style="background-color:brown;color:white;font-weight:bold;" value="Join Now!">
+	</form>
 	</div>
+
 </div>
 <div id="footer" class="row" >
 <h1>&nbsp;</h1>
