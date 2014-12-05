@@ -25,13 +25,16 @@ function SessionHandler (db) {
         return res.render("login", {emailID:"", passwd:"", login_error:"", username_error:""})
     }
 
-	this.displayWelcome = function(req,res,next){
+	this.displayWelcome = function(req,res,next){ //Login function
 	
 	var firstName = req.body.firstName;
 	var lastName = req.body.lastName;
 	var emailAddress= req.body.emailAddress;
 	var password = req.body.password;
 	var radio = req.body.truckOwner;
+    var latitude = req.body.latitude;
+    var longitude = req.body.longitude;
+    console.log(req.body);
 	
 	console.log(radio);
 	
@@ -77,7 +80,7 @@ function SessionHandler (db) {
 	{
 		var errors = {'email': emailAddress}
         if (validateSignup(firstName, lastName, emailAddress, password, radio, errors)) {
-            users.addUser(firstName, lastName, emailAddress, password, radio, function(err, user) {
+            users.addUser(firstName, lastName, emailAddress, password, radio, latitude, longitude, function(err, user) {
                 "use strict";
 
                 if (err) {
